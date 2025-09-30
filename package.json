@@ -1,0 +1,13 @@
+{
+  "name": "chat-app",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "concurrently \"npm run start:server\" \"npm run start:client\"",
+    "start:server": "cd server && npm start",
+    "start:client": "cd real-time-chat && npm start",
+    "install:all": "cd server && npm install && cd ../real-time-chat && npm install"
+  },
+  "devDependencies": {
+    "concurrently": "^7.6.0"
+  }
+}
