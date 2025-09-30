@@ -1,4 +1,5 @@
 import React from 'react';
+import './ChannelList.css'
 
 /*
 Channel list component
@@ -21,9 +22,9 @@ export default function ChannelList({ channels, activeChannel, onJoin, onLeave }
               <span className="channel-name">{ch.name}</span>
               <div className="channel-actions">
                 {activeChannel === ch.id ? (
-                  <button onClick={() => onLeave(ch.id)}>Leave</button>
+                  <button className='channel-leave' onClick={() => onLeave(ch.id)}>Leave</button>
                 ) : (
-                  <button onClick={() => onJoin(ch.id)}>Join</button>
+                  <button className='channel-join' onClick={() => onJoin(ch.id)}>Join</button>
                 )}
               </div>
             </div>

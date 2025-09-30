@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
+import './ChatWindow.css'
 
 /*
 Chat window:
@@ -39,9 +40,7 @@ export default function ChatWindow({ user, members, messages, onSend, activeChan
         <h2>{activeChannel ? `Channel: ${activeChannel}` : 'No active channel'}</h2>
         <div className="members">
           <strong>Members:</strong>
-          {members.length === 0 ? <span> — </span> : members.map(mid => (
-            <span key={mid} className="member-pill">{mid}</span>
-          ))}
+          {members.length === 0 ? <span> — </span> : <span className="number-of-members">{members.length}</span>}
         </div>
       </div>
 

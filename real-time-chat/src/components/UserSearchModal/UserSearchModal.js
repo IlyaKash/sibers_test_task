@@ -1,5 +1,6 @@
 import React from 'react';
 import UserSearch from '../UserSearch/UserSearch';
+import './UserSearchModal.css'
 
 /*
 Modal wrapper for UserSearch.

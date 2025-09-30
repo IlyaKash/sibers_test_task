@@ -1,0 +1,104 @@
+.App {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  font-family: "Segoe UI", Roboto, sans-serif;
+  background: #f3f4f6;
+  color: #333;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 24px;
+  background: linear-gradient(135deg, #4e73df, #1cc88a);
+  color: #fff;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+}
+
+.header h1 {
+  margin: 0;
+  font-size: 1.6rem;
+  font-weight: 600;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.header-right button {
+  padding: 6px 14px;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.header-right button:disabled {
+  background: #a9a9a9;
+  cursor: not-allowed;
+  color: #eee;
+}
+
+.header-right button:not(:disabled) {
+  background: #fff;
+  color: #333;
+}
+
+.header-right button:not(:disabled):hover {
+  background: #f0f0f0;
+  transform: translateY(-2px);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+}
+
+.current-user {
+  font-size: 0.95rem;
+}
+
+.current-user b {
+  color: #ffd700;
+}
+
+.main {
+  flex: 1;
+  display: grid;
+  grid-template-columns: 240px 1fr 240px;
+  gap: 16px;
+  padding: 16px;
+  overflow: hidden;
+}
+
+.sidebar {
+  background: #fff;
+  border: 1px solid #e1e4e8;
+  border-radius: 8px;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  overflow-y: auto;
+}
+
+.content {
+  background: #fff;
+  border: 1px solid #e1e4e8;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  overflow: hidden;
+}
+
+.footer {
+  padding: 10px 16px;
+  background: #f1f3f6;
+  border-top: 1px solid #d1d5db;
+  text-align: center;
+  font-size: 0.85rem;
+  color: #666;
+}

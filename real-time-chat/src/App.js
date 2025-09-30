@@ -22,8 +22,14 @@ function App() {
   const [messages, setMessages]=useState([]);//messages of the active channel
   const [showCreate, setShowCreate]=useState(false);//flags for displaying modal windows
   const [showUserModal, setShowUserModal] = useState(false);
+  
 
   const socketRef=useRef(null);//socket reference for access from handlers
+  const activeChannelRef = useRef(null);//activeChannel reference
+
+  useEffect(() => {
+    activeChannelRef.current = activeChannel;
+  }, [activeChannel]);
 
   // When mounting the component it downloads the list of users from the server and saves it in the users state
   useEffect(() =>{
@@ -66,7 +72,8 @@ function App() {
 
     // Handles the exclusion of a user from a channel
     s.on('kicked', ({channelId}) => {
-      if (activeChannel === channelId){
+      // Use ref instead of state
+      if (activeChannelRef.current === channelId){
         setActiveChannel(null);
         setMessages([]);
         setMembers([]);
@@ -102,6 +109,9 @@ function App() {
   // Entrance to the channel
   const handleJoinChannel = (channelId) => {
     if (!socketRef.current) return;
+    if (activeChannel && activeChannel !== channelId) {
+      socketRef.current.emit('leave_channel', {channelId: activeChannel});
+    }
     socketRef.current.emit('join_channel', {channelId});
     setActiveChannel(channelId);
   };

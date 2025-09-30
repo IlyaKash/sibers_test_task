@@ -1,4 +1,5 @@
 import React from "react";
+import './UserList.css'
 
 /*
 UserList component
@@ -11,6 +12,8 @@ Props:
 */
 export default function UserList({ members, users, currentUser, ownerId, onKick }) {
   const getUser = (id) => users.find(u => u.id === id);
+
+  if (!members || !users) return <div className="user-list">Loading...</div>
 
   return (
     <div className="user-list">
