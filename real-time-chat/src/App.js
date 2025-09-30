@@ -9,7 +9,7 @@ import UserSearchModal from './components/UserSearchModal/UserSearchModal';
 import UserList from './components/UserList/UserList';
 
 
-const SOCKET_URL = 'http://localhost:4000';
+const SOCKET_URL = process.env.REACT_APP_API_URL || 'http://localhost:4000';
 
 function App() {
   
